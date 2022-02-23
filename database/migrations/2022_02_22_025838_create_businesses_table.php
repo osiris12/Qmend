@@ -19,9 +19,9 @@ class CreateBusinessesTable extends Migration
             $table->string('address');
             $table->decimal(lat, 7, 4);
             $table->decimal(lng, 7, 4);
-            $table->unsignedInteger('city');
-            $table->unsignedInteger('state');
-            $table->unsignedInteger('country');
+            $table->foreignId('city_id')->constrained();
+            $table->foreignId('state_id')->constrained();
+            $table->foreignId('country_id')->constrained();
             $table->timestamps();
         });
     }

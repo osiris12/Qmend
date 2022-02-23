@@ -15,7 +15,7 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('business_id');
+            $table->foreignId('business_id')->constrained();
             $table->unsignedInteger('source');
             $table->unsignedInteger('number_of_reviews');
             $table->unsignedInteger('score');
