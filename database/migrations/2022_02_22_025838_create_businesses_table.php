@@ -17,10 +17,10 @@ class CreateBusinessesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->decimal(lat, 7, 4);
-            $table->decimal(lng, 7, 4);
+            $table->decimal('lat', 7, 4);
+            $table->decimal('lng', 7, 4);
             $table->foreignId('city_id')->constrained();
-            $table->foreignId('state_id')->constrained();
+            $table->string('state_id', 2);
             $table->foreignId('country_id')->constrained();
             $table->timestamps();
         });

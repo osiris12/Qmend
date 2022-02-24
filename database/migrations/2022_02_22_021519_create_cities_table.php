@@ -17,9 +17,6 @@ class CreateCitiesTable extends Migration
             $table->id();
             $table->string('name', 35);
             $table->string('state_id', 2);
-            $table->string('state_name', 20);
-            $table->unsignedInteger('county_flips', 11);
-            $table->string('county_name', 21);
             $table->decimal('lat', 7, 4);
             $table->decimal('lng', 7, 4);
             $table->unsignedInteger('population');
