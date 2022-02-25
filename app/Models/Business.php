@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Business extends Model
 {
     use HasFactory;
+
+    public function reviews(): Object
+    {
+        return $this->hasMany(Review::class);
+    }
 }
