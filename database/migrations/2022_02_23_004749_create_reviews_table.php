@@ -17,8 +17,9 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->foreignId('business_id')->constrained();
             $table->unsignedInteger('source');
+            $table->unique(['business_id', 'source']);
             $table->unsignedInteger('number_of_reviews');
-            $table->unsignedInteger('score');
+            $table->unsignedFloat('score', 2,1);
             $table->string('link');
             $table->timestamps();
         });

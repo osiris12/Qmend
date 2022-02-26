@@ -22,7 +22,7 @@ class CreateCitiesTable extends Migration
             $table->unsignedInteger('population');
             $table->unsignedInteger('density');
             $table->string('timezone', 30);
-            $table->string('zips', 1859);
+            $table->string('zips', 1859)->nullable();
             $table->timestamps();
         });
     }
