@@ -9,5 +9,8 @@
 </head>
 <body>
     <h1>Welcome!</h1>
+@php
+print_r($businesses)
+@endphp
 </body>
 </html>
