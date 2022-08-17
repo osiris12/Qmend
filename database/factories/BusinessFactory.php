@@ -23,7 +23,7 @@ class BusinessFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->company,
             'address' => $this->faker->address,
             'lat' => $this->faker->latitude,
             'lng' => $this->faker->latitude,

@@ -16,8 +16,8 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('business_id')->constrained();
-            $table->unsignedInteger('source');
-            $table->unique(['business_id', 'source']);
+            $table->foreignId('source_id')->constrained();
+            $table->unique(['business_id', 'source_id']);
             $table->unsignedInteger('number_of_reviews');
             $table->unsignedFloat('score', 2,1);
             $table->string('link');

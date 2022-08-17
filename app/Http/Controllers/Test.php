@@ -12,7 +12,8 @@ class Test extends Controller
     public function index()
     {
         return view('welcome', [
-            'businesses' => Business::with('reviews')->find(1)->toJson(JSON_PRETTY_PRINT)
+            'business' => Business::with('reviews', 'reviews.source')->find(1),
+//            'businesses' => Business::with('reviews', 'reviews.source')->take(5)->get()
         ]);
     }
 }
