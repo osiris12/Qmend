@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Resources\BusinessCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//Route::middleware('auth:sanctum')->group(function () {
+//    Route::resource('business', BusinessController::class);
+//});
+
+Route::resource('business', BusinessController::class);
+Route::resource('review', ReviewController::class);
