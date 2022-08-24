@@ -18,4 +18,9 @@ class Business extends Model
     {
         return $this->hasMany(HoursOfOperation::class);
     }
+
+    public function city(): object
+    {
+        return $this->hasOne(City::class, 'id', 'city_id');
+    }
 }

@@ -46,7 +46,7 @@ class StateController extends Controller
      */
     public function show($id)
     {
-        return State::with('businesses')->find($id)->toJson();
+        return State::with('businesses', 'businesses.city')->find($id)->toJson();
     }
 
     /**
