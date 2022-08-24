@@ -23,13 +23,16 @@ class BusinessFactory extends Factory
     public function definition()
     {
         return [
-            'name'       => $this->faker->company,
-            'address'    => $this->faker->address,
-            'lat'        => $this->faker->latitude,
-            'lng'        => $this->faker->latitude,
-            'city_id'    => $this->faker->numberBetween(1, 1000),
-            'state_id'   => $this->getState($this->faker->numberBetween(0, 49)),
-            'country_id' => 1,
+            'name'         => $this->faker->company,
+            'status'       => $this->faker->boolean,
+            'phone_number' => $this->faker->phoneNumber,
+            'address'      => $this->faker->address,
+            'zipcode'      => $this->faker->postcode,
+            'lat'          => $this->faker->latitude,
+            'lng'          => $this->faker->latitude,
+            'city_id'      => $this->faker->numberBetween(1, 1000),
+            'state_id'     => $this->getState($this->faker->numberBetween(0, 49)),
+            'country_id'   => 1,
         ];
     }
 
