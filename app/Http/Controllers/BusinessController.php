@@ -46,7 +46,7 @@ class BusinessController extends Controller
      */
     public function show($id)
     {
-        return Business::find($id)->toJson();
+        return Business::with('reviews', 'reviews.source', 'hoursofoperations')->find($id)->toJson();
     }
 
     /**

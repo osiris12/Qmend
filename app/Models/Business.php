@@ -13,4 +13,9 @@ class Business extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function hoursofoperations(): object
+    {
+        return $this->hasMany(HoursOfOperation::class);
+    }
 }
