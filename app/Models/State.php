@@ -11,6 +11,6 @@ class State extends Model
 
     public function businesses(): Object
     {
-        return $this->hasMany(Business::class);
+        return $this->hasMany(Business::class, 'state_id', 'state_id');
     }
 }

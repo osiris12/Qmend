@@ -1,7 +1,12 @@
 <?php
 
 use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\HoursOfOperationController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SourceController;
+use App\Http\Controllers\StateController;
 use App\Http\Resources\BusinessCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +30,9 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::resource('business', BusinessController::class);
+Route::resource('city', CityController::class);
+Route::resource('country', CountryController::class);
+Route::resource('hours', HoursOfOperationController::class);
 Route::resource('review', ReviewController::class);
+Route::resource('source', SourceController::class);
+Route::resource('state', StateController::class);

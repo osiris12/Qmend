@@ -26,7 +26,7 @@ class BusinessFactory extends Factory
             'name'         => $this->faker->company,
             'status'       => $this->faker->boolean,
             'phone_number' => $this->faker->phoneNumber,
-            'address'      => $this->faker->address,
+            'address'      => $this->faker->streetAddress,
             'zipcode'      => $this->faker->postcode,
             'lat'          => $this->faker->latitude,
             'lng'          => $this->faker->latitude,
