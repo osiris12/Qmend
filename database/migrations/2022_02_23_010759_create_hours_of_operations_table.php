@@ -16,9 +16,10 @@ class CreateHoursOfOperationsTable extends Migration
         Schema::create('hours_of_operations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('business_id')->constrained();
-            $table->time('open_time');
-            $table->time('close_time');
-            $table->unsignedTinyInteger('day');
+            $table->string('open_time');
+            $table->string('close_time');
+            $table->string('day');
+            $table->unique(['business_id', 'day']);
             $table->timestamps();
         });
     }

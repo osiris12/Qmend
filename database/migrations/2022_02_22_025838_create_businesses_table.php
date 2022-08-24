@@ -16,12 +16,15 @@ class CreateBusinessesTable extends Migration
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('status');
+            $table->string('phone_number');
             $table->string('address');
-            $table->decimal('lat', 7, 4);
-            $table->decimal('lng', 7, 4);
+            $table->string('zipcode');
             $table->foreignId('city_id')->constrained();
             $table->string('state_id', 2);
             $table->foreignId('country_id')->constrained();
+            $table->decimal('lat', 7, 4);
+            $table->decimal('lng', 7, 4);
             $table->timestamps();
         });
     }

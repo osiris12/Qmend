@@ -22,7 +22,7 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            'business_id' => $this->faker->numberBetween(1, 5000),
+            'business_id' => $this->faker->numberBetween(1, 50),
             'source_id' => $this->faker->numberBetween(1, 5),
             'number_of_reviews' => $this->faker->numberBetween(100, 2000),
             'score' => $this->faker->randomFloat(1, 1, 5),
