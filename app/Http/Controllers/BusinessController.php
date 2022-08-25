@@ -34,7 +34,7 @@ class BusinessController extends Controller
             $params[] = ["$key", 'like', "%$value%"];
         }
 
-        return Business::where($params)->take(10)->get()->toJson();
+        return Business::with('reviews', 'reviews.source', 'hoursofoperations')->where($params)->take(10)->get()->toJson();
     }
 
     /**
