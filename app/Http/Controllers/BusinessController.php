@@ -4,17 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Models\Business;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class BusinessController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $allowedParams = [
+            'name',
+            'id',
+            'status',
+            'zipcode',
+            'city_id',
+            'state_id'
+        ];
+        $params = [];
+        foreach($request->all() as $key => $value) {
+            if(!in_array($key, $allowedParams))
+            {
+                return response()->json([
+                    'message' => "Query parameter '$key' not accepted."
+                ], 400);
+            }
+            $params[] = ["$key", 'like', "%$value%"];
+        }
+
+        return Business::where($params)->take(10)->get()->toJson();
     }
 
     /**
@@ -42,7 +62,7 @@ class BusinessController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function show($id)
     {

@@ -7,7 +7,6 @@ use App\Http\Controllers\HoursOfOperationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\StateController;
-use App\Http\Resources\BusinessCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
