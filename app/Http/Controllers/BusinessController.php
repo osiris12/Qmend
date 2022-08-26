@@ -13,28 +13,9 @@ class BusinessController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index(Request $request)
+    public function index()
     {
-        $allowedParams = [
-            'name',
-            'id',
-            'status',
-            'zipcode',
-            'city_id',
-            'state_id'
-        ];
-        $params = [];
-        foreach($request->all() as $key => $value) {
-            if(!in_array($key, $allowedParams))
-            {
-                return response()->json([
-                    'message' => "Query parameter '$key' not accepted."
-                ], 400);
-            }
-            $params[] = ["$key", 'like', "%$value%"];
-        }
-
-        return Business::with('reviews', 'reviews.source', 'hoursofoperations')->where($params)->take(10)->get()->toJson();
+        return Business::paginate(25);
     }
 
     /**
@@ -101,5 +82,35 @@ class BusinessController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function find(Request $request)
+    {
+        if(empty($request->all()))
+        {
+            return response()->json([
+                'message' => "A query parameter is needed for this endpoint. Please provide one of the following: name, business_id, status, zipcode, city_id, or state_id. "
+            ], 400);
+        }
+        $allowedParams = [
+            'name',
+            'id',
+            'status',
+            'zipcode',
+            'city_id',
+            'state_id'
+        ];
+        $params = [];
+        foreach($request->all() as $key => $value) {
+            if(!in_array($key, $allowedParams))
+            {
+                return response()->json([
+                    'message' => "Query parameter '$key' not accepted."
+                ], 400);
+            }
+            $params[] = ["$key", 'like', "%$value%"];
+        }
+
+        return Business::with('reviews', 'reviews.source', 'hoursofoperations')->where($params)->take(10)->get()->toJson();
     }
 }

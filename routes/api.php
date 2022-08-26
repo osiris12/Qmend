@@ -28,7 +28,8 @@ use Illuminate\Support\Facades\Route;
 //    Route::resource('business', BusinessController::class);
 //});
 
-Route::resource('business', BusinessController::class);
+Route::get('businesses/find', [BusinessController::class, 'find']);
+Route::resource('businesses', BusinessController::class);
 Route::resource('city', CityController::class);
 Route::resource('country', CountryController::class);
 Route::resource('hours', HoursOfOperationController::class);
